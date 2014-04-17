@@ -19,11 +19,11 @@ if ismember(chan,basevars)
         c1 = evalin('base',chan);
         c2 = evalin('base',chan2);
         
-        c1 = c1 - mean(c1);
-        c1 = (c1-min(c1(:))) ./ (max(c1(:)-min(c1(:))));
+        c1 = c1 - nanmean(c1);
+        c1 = (c1-nanmin(c1(:))) ./ (nanmax(c1(:)-nanmin(c1(:))));
         c1 = c1.*2;
-        c1 = c1 - mean(c1);
-        c1 = c1.*max(c2);
+        c1 = c1 - nanmean(c1);
+        c1 = c1.*nanmax(c2);
         
         disp('Autoscale saved');
         assignin('base',chan,c1);
