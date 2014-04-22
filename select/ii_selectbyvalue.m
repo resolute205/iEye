@@ -32,6 +32,10 @@ if ismember(c,basevars)
             cwhere = find(thechan <= cval);
         case 6
             cwhere = find(thechan >= cval);
+        case 7
+            cwhere = find(thechan > cval | thechan < -cval);
+        case 8
+            cwhere = find(thechan >= cval | thechan <= -cval);
         otherwise
             disp('Invalid condition');
     end
