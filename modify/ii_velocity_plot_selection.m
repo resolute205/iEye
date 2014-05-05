@@ -60,9 +60,9 @@ if ismember(x,basevars)
          hold on
          plot(thresh,'r')
          hold on
-         plot(temp_sel,'m')
-         grid on
-         grid minor
+         plot(temp_sel,'y')
+         %grid on
+         %grid minor
          %title('Zvel,2samples,')
          title(sprintf('Zvel,2samples: mean = %.3f, std = %.3f, meanPlus3Std = %.3f',mean_vel,std_vel,mean_3std_thresh))
          legend('Z velocity','thresh','selection')
