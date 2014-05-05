@@ -37,7 +37,6 @@ if ismember(x,basevars)
         vel = [0; vel];
         
         ii_cfg.velocity = vel;
-        putvar(ii_cfg);
         
          % Plot results
          %figure('Name','Velocity Channel','NumberTitle','off');
@@ -75,8 +74,24 @@ if ismember(x,basevars)
          grid minor
          title('Z Velocity Plot of Selection Only')
          
-         
         
+        [m,n]=size(ii_cfg.trial.tsel_trial_ones{1});
+        for trial=1:n
+
+            
+            maxVel_byTrial_EpochsInSelector(trial)=max((ii_cfg.trial.tsel_trial_ones{1}(:,trial)) .* (ii_cfg.sel .* vel));
+            medVel_byTrial_EpochsInSelector(trial)=median((ii_cfg.trial.tsel_trial_ones{1}(:,trial)) .* (ii_cfg.sel .* vel));
+            meanVel_byTrial_EpochsInSelector(trial)=mean((ii_cfg.trial.tsel_trial_ones{1}(:,trial)) .* (ii_cfg.sel .* vel));
+            
+        end
+
+         ii_cfg.maxVel_byTrial_EpochsInSelector=maxVel_byTrial_EpochsInSelector;
+         ii_cfg.medVel_byTrial_EpochsInSelector=medVel_byTrial_EpochsInSelector;
+         ii_cfg.meanVel_byTrial_EpochsInSelector=meanVel_byTrial_EpochsInSelector;
+
+         
+         putvar(ii_cfg);
+
     else
         disp('Channel to does not exist in worksapce');
     end
