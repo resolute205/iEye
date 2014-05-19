@@ -45,7 +45,7 @@ if ismember(c,basevars)
     cursel(:,1) = SplitVec(cwhere,'consecutive','firstval');
     cursel(:,2) = SplitVec(cwhere,'consecutive','lastval');
     
-    for i = 1:length(cursel)
+    for i = 1:size(cursel,1)   %Drew
         dif = cursel(i,2) - cursel(i,1);
         if dif < 2
             cursel(i,2) = cursel(i,2) + 1;
