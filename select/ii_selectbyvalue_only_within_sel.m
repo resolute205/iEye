@@ -18,6 +18,7 @@ if ismember(c,basevars)
     thechan = evalin('base',c);
     ii_cfg = evalin('base', 'ii_cfg');
     sel = ii_cfg.sel;
+    sel(sel==0) = nan;    %Drew
     thechan=thechan.*sel; %Drew
     
     switch cond
